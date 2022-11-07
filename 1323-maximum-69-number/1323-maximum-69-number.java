@@ -1,6 +1,6 @@
 class Solution {
     public int maximum69Number (int num) {
-        System.out.println(String.valueOf(num));
+       
      char [] chars = String.valueOf(num).toCharArray();
         int i =0;
         
