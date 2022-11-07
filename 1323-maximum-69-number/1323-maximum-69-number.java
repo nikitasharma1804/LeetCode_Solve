@@ -11,10 +11,7 @@ class Solution {
             }
             i++;
         }
-        int n =0;
-        for(int j =0;j<chars.length;j++){
-            n=n*10+chars[j]-'0';
-        }
-        return n;
+        
+        return Integer.parseInt(String.valueOf(chars));
     }
 }
