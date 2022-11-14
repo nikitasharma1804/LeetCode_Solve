@@ -2,31 +2,19 @@ class Solution {
     public String reverseWords(String s) {
      int i =0;
         StringBuilder sb =new StringBuilder();
-        ArrayList<String> arr=new ArrayList<>();
-        while(i<s.length()){
-            while(i<s.length()&&s.charAt(i)==' '){
-                i++;
-                
+        String [] arr = s.split(" ");
+        for(int k=arr.length-1;k>=0;k--){
+            if(!arr[k].isEmpty()){
+                if(k!=arr.length-1){
+            sb.append(" ");     
             }
-            int j =i;
-            while(j<s.length()&&s.charAt(j)!=' '){
-                j++;
-            }
-            String st=s.substring(i,j);
-                 System.out.println(st);
-            if(!st.isEmpty()){
-            arr.add(st);
-            }
-            i=j;
-        }
-        for(int k=arr.size()-1;k>=0;k--){
-       
-            sb.append(arr.get(k));
-            if(k!=0){
-            sb.append(" ");    
+            sb.append(arr[k]);
+            
+               
             }
             
         }
+      
         return sb.toString();
     }
 }
