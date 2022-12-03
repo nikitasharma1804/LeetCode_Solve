@@ -4,16 +4,8 @@ class StreamChecker {
         Node [] children= new Node[26];
         boolean isEnd =false;
         
-    }
-     
-    private final StringBuilder st ;
-    private final Node root;
-    
-    public StreamChecker(String[] words) {
-        root= new Node();
-        st = new StringBuilder();
-        for(String s:words){
-         Node curr= root;
+        public static void insert(String s,Node root){
+            Node curr= root;
             for(int i =s.length()-1;i>=0;i--){
                 char c =s.charAt(i);
                 if(curr.children[c-'a']==null){
@@ -21,14 +13,12 @@ class StreamChecker {
                 }
                 curr=curr.children[c-'a'];
             }
-            curr.isEnd =true;  
+            curr.isEnd =true;
         }
     }
-    
-    public boolean query(char letter) { 
-        st.append(letter);
-        Node curr =root;
-            for(int i =st.length()-1;i>=0;i--){
+        public static boolean checkPrefix(StringBuilder st, Node root){
+            Node curr =root;
+            for(int i =0;i<st.length();i++){
                char c =st.charAt(i);
                 if(curr.children[c-'a']==null){
                    return false; 
@@ -39,6 +29,22 @@ class StreamChecker {
                 }
             }
             return false;
+        
+    }
+    StringBuilder st ;
+    Node root;
+    
+    public StreamChecker(String[] words) {
+        root= new Node();
+        st = new StringBuilder();
+        for(String s:words){
+            root.insert(s,root);
+        }
+    }
+    
+    public boolean query(char letter) {
+        st.insert(0,letter);
+        return checkPrefix(st,root);
     }
 }
 
