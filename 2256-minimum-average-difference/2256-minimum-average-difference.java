@@ -3,6 +3,7 @@ class Solution {
     int n = nums.length;
     long [] left = new long [n];
     long [] right = new long[n];
+        
     left[0]=nums[0];
         int idx=0;
     long ans =Long.MAX_VALUE;
@@ -10,6 +11,7 @@ class Solution {
         left[i]=left[i-1]+nums[i];
         
     }
+        long sum=left[n-1];
     for(int i=n-2;i>=0;i--){
         right[i]=right[i+1]+nums[i+1];   
     }
@@ -18,7 +20,7 @@ class Solution {
         }
         for(int i=0;i<n;i++){
         long ls=left[i]/Math.max(1,i+1);
-        long rs=right[i]/Math.max(n-i-1,1);
+        long rs=(sum-left[i])/Math.max(n-i-1,1);
             if(Math.abs(ls-rs)<ans){
                 ans=Math.abs(ls-rs);
                 idx=i;
