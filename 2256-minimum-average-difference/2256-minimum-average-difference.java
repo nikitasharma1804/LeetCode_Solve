@@ -12,12 +12,8 @@ class Solution {
         
     }
         long sum=left[n-1];
-    for(int i=n-2;i>=0;i--){
-        right[i]=right[i+1]+nums[i+1];   
-    }
-        for(long val:right){
-            System.out.println(val);
-        }
+    
+       
         for(int i=0;i<n;i++){
         long ls=left[i]/Math.max(1,i+1);
         long rs=(sum-left[i])/Math.max(n-i-1,1);
