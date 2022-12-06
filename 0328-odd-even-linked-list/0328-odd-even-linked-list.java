@@ -13,7 +13,7 @@ class Solution {
         if(head==null||head.next==null){
             return head;
         }
-        ListNode h1=head;
+       
         ListNode h2=head.next;
         ListNode t1=head;
         ListNode t2=head.next;
@@ -29,6 +29,6 @@ class Solution {
         }
         
         t1.next=h2;
-        return h1;
+        return head;
     }
 }
