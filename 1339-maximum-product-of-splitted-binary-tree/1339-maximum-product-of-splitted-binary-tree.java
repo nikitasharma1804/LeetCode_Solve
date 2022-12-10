@@ -34,9 +34,10 @@ class Solution {
         }
         long left=getAns(root.left,sum,ans);
         long right=getAns(root.right,sum,ans);
-        ans[0]=Math.max(ans[0],Math.max((left*Math.abs(left-sum)),(right*Math.abs(right-sum))));
+        long csum=left + right+root.val;
+        ans[0]=Math.max(ans[0],csum*(sum-csum));
         
-        return left + right+root.val;
+        return csum;
         
     }
 }
