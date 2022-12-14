@@ -26,28 +26,5 @@ class Solution {
         
        return dp[0];   
     }
-    public static int rec(int[] prices, int times, int idx,int [][] dp){
-        if(idx==prices.length){
-            return 0;
-        }
-        int ans =0;
-        
-        if(times==4){
-            return 0;
-        }
-        if(dp[times][idx]!=-1){
-            return dp[times][idx];
-        }
-        if(times%2==0){
-        //nahi khareda
-            ans=Math.max(rec(prices,times+1,idx+1,dp)-prices[idx],rec(prices,times,idx+1,dp));
-            
-        }
-        else{
-            //khareeda
-            ans=Math.max(rec(prices,times+1,idx+1,dp)+prices[idx],rec(prices,times,idx+1,dp));
-        }
-        dp[times][idx]=ans;
-        return ans;
-    }
+
 }
